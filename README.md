@@ -1,88 +1,46 @@
-# ASL Translation System
+# ASL Translator (Single-Sign Recognition)
 
-This project implements an offline tool for translating American Sign Language (ASL) videos into English text. The system can process individual sign words and, as a stretch goal, simple ASL sentences.
+This project implements a deep learning system to translate **single American Sign Language (ASL) signs** into English words using video input. It leverages **MediaPipe** for pose and hand landmark extraction and a **BiLSTM** network for temporal sequence modeling.
+
+---
+
+## Overview
+
+Sign languages are a primary mode of communication for Deaf and hard-of-hearing individuals, but barriers still exist between signers and non-signers. This project focuses on recognizing **isolated ASL signs** from short video clips and translating them into English words. The approach can serve as a foundation for larger ASL-to-English translation systems.
+
+---
 
 ## Features
 
-- Process individual ASL sign videos
-- Translate signs to English words
-- Simple and intuitive user interface
-- Offline operation
-- Support for both word-level and sentence-level translation (stretch goal)
+- Recognizes single ASL signs from video input.  
+- Uses **MediaPipe Holistic** for hand and upper-body landmark extraction.  
+- Employs **BiLSTM** for modeling temporal dynamics of the gestures.  
+- Written in **PyTorch** for flexibility and GPU acceleration.  
+- Easily extendable to more signs with additional data.
 
-## Project Structure
+---
 
-```
-asl_translator/
-├── data/                  # Data storage and processing
-│   ├── raw/              # Raw video data
-│   └── processed/        # Processed frames and features
-├── models/               # Model definitions and weights
-├── src/                  # Source code
-│   ├── data/            # Data processing modules
-│   ├── models/          # Model architecture definitions
-│   ├── training/        # Training scripts
-│   └── inference/       # Inference and prediction code
-├── notebooks/           # Jupyter notebooks for development
-└── demo/                # Demo interface
-```
+## Installation
 
-## Setup
+1. Clone the repository:
 
-1. Create a virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+git clone https://github.com/yourusername/asl-translator.git
+cd asl-translator
 ```
 
-2. Install dependencies:
+2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Download the dataset:
-- ASL Alphabet and Word Datasets from Kaggle
-- Place the data in the `data/raw` directory
-
 ## Usage
-
-1. Training:
+1. Offline Usage
 ```bash
-python src/training/train.py
+python.exe ./demo/predict.py <input_file>
 ```
 
-2. Running the demo:
+2. Realtime Usage
 ```bash
-python demo/app.py
+python.exe ./demo/predict_realtime.py
 ```
-
-## Model Architecture
-
-The system uses a CNN + LSTM architecture for word-level translation:
-- CNN for spatial feature extraction
-- LSTM for temporal sequence processing
-- Final classification layer for word prediction
-
-For sentence-level translation (stretch goal):
-- Transformer-based model for sequence-to-sequence translation
-- Gloss-to-English translation pipeline
-
-## Dataset
-
-Primary dataset:
-- ASL Alphabet and Word Datasets from Kaggle
-
-Optional datasets:
-- PHOENIX-2014T
-- ASLLVD
-- HOW2SIGN
-
-## Requirements
-
-- Python 3.8+
-- CUDA-capable GPU (recommended for training)
-- ~5-10GB storage for data and models
-
-## License
-
-MIT License 
