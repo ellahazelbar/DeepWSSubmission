@@ -40,7 +40,7 @@ pip install -r requirements.txt
 python.exe ./demo/predict.py <input_video>
 ```
 
-2. Realtime Usage - record a video using the device camera and interpret it
+2. Realtime Usage - Record a video using the device camera and interpret it
 ```bash
 python.exe ./demo/predict_realtime.py
 ```
