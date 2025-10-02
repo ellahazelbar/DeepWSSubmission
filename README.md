@@ -25,7 +25,7 @@ Sign languages are a primary mode of communication for Deaf and hard-of-hearing 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/asl-translator.git
+git clone https://github.com/ellahazelbar/DeepWSSubmission.git
 cd asl-translator
 ```
 
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ## Usage
 1. Offline Usage
 ```bash
-python.exe ./demo/predict.py <input_file>
+python.exe ./demo/predict.py <input_video>
 ```
 
 2. Realtime Usage
